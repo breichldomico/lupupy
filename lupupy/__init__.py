@@ -176,7 +176,7 @@ class Lupusec:
         panel["type"] = CONST.ALARM_TYPE
         panel["name"] = CONST.ALARM_NAME
 
-        history = self.get_history()
+        # history = self.get_history()
 
         if self.model == 1:
             for histrow in history:
@@ -319,8 +319,10 @@ def newDevice(deviceJson, lupusec):
         return LupusecBinarySensor(deviceJson, lupusec)
     elif type_tag in CONST.TYPE_SENSOR:
         return LupusecBinarySensor(deviceJson, lupusec)
+#    elif type_tag in CONST.TYPE_SMOKE_XT2:
+#        return LupusecBinarySensor(deviceJson, lupusec)
     elif type_tag in CONST.TYPE_SWITCH:
         return LupusecSwitch(deviceJson, lupusec)
     else:
-        _LOGGER.info("Device is not known")
+        _LOGGER.info("Device is not known " + str(type_tag))
     return None

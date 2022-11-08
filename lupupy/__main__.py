@@ -1,7 +1,12 @@
+import sys, os
+
+sys.path.append("D:/DOMICO/Development/GitHub/lupupy/")
+
 import lupupy
 import argparse
 import logging
 import json
+
 
 _LOGGER = logging.getLogger('lupuseccl')
 
