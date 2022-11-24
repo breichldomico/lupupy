@@ -176,7 +176,7 @@ class Lupusec:
         panel["type"] = CONST.ALARM_TYPE
         panel["name"] = CONST.ALARM_NAME
 
-        history = self.get_history()
+        # history = self.get_history()
 
         if self.model == 1:
             for histrow in history:
