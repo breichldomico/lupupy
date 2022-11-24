@@ -11,7 +11,6 @@ import lupupy.devices.alarm as ALARM
 import lupupy.constants as CONST
 from lupupy.devices.binary_sensor import LupusecBinarySensor
 from lupupy.devices.switch import LupusecSwitch
-from lupupy.devices.plug import LupusecPlug
 
 _LOGGER = logging.getLogger(__name__)
 home = str(Path.home())
@@ -316,8 +315,6 @@ def newDevice(deviceJson, lupusec):
     if not type_tag:
         _LOGGER.info("Device has no type")
 
-    # _LOGGER.info("tag: " + str(type_tag))
-
     if type_tag in CONST.TYPE_OPENING:
         return LupusecBinarySensor(deviceJson, lupusec)
     elif type_tag in CONST.TYPE_SENSOR:
@@ -326,8 +323,6 @@ def newDevice(deviceJson, lupusec):
 #        return LupusecBinarySensor(deviceJson, lupusec)
     elif type_tag in CONST.TYPE_SWITCH:
         return LupusecSwitch(deviceJson, lupusec)
-    elif type_tag in CONST.TYPE_KEYPADS:
-        _LOGGER.info("KEYPAD: " + str(type_tag))
     else:
         _LOGGER.info("Device is not known " + str(type_tag))
     return None
